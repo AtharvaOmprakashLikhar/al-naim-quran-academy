@@ -114,10 +114,20 @@ All text, courses, surahs, pricing, and contact numbers can be edited in a singl
 
 ---
 
-## 🌐 Deployment
+## 🌐 Live URLs & Deployment
 
-The project is 100% static and ready to host anywhere:
-- **Vercel**: Drag and drop the folder into Vercel Dashboard or run `npx vercel`.
-- **Netlify**: Drag and drop into Netlify Drop.
-- **GitHub Pages**: Push to a GitHub repository and enable GitHub Pages under repository settings.
-- **Firebase Hosting**: Run `firebase deploy`.
+### 🔗 Live Website (GitHub Pages)
+👉 **[https://atharvaomprakashlikhar.github.io/al-naim-quran-academy/](https://atharvaomprakashlikhar.github.io/al-naim-quran-academy/)**
+
+### 📦 GitHub Repository
+👉 **[https://github.com/AtharvaOmprakashLikhar/al-naim-quran-academy](https://github.com/AtharvaOmprakashLikhar/al-naim-quran-academy)**
+
+### 🚀 Deploy to Render
+Click the button below to deploy this repository directly to Render:
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/AtharvaOmprakashLikhar/al-naim-quran-academy)
+
+**Render Settings (Static Site)**:
+- **Build Command**: *(leave empty)*
+- **Publish Directory**: `.`
+- Pre-configured with [`render.yaml`](file:///c:/Users/Atharva/OneDrive/Desktop/acadmey/render.yaml) for automatic setup.
