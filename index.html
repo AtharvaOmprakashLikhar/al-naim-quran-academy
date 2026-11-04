@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Primary SEO Meta Tags -->
+  <title>Al Naim Qur’an Academy | Online Quran Recitation, Tajweed & Hifz</title>
+  <meta name="title" content="Al Naim Qur’an Academy | Online Quran Recitation, Tajweed & Hifz">
+  <meta name="description" content="Learn to read, recite, and understand the Holy Qur’an with patient, certified Al-Azhar teachers worldwide. 1-on-1 live interactive classes for kids and adults with 3D interactive Mushaf and free trial lessons.">
+  <meta name="keywords" content="Quran Academy, Online Quran Classes, Learn Quran with Tajweed, Hifz Quran Online, Noorani Qaida for Kids, Arabic Alphabet, Al Naim Academy">
+  <meta name="author" content="Al Naim Qur'an Academy">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://alnaimacademy.com/">
+  <meta property="og:title" content="Al Naim Qur’an Academy — Learn Holy Qur’an Online">
+  <meta property="og:description" content="1-on-1 private online Quran classes with certified male & female teachers. Experience the 3D interactive Quran and book your free trial class today.">
+  <meta property="og:image" content="assets/images/logo.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Al Naim Qur’an Academy — Learn Holy Qur’an Online">
+  <meta property="twitter:description" content="1-on-1 private online Quran classes with certified male & female teachers. Experience the 3D interactive Quran and book your free trial class today.">
+  <meta property="twitter:image" content="assets/images/logo.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/images/logo.jpg">
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- =====================================================================
+       SITE HEADER & NAVIGATION
+       ===================================================================== -->
+  <header class="site-header" role="banner">
+    <div class="nav-container">
+      <a href="#bookSec" class="brand-link" aria-label="Al Naim Quran Academy Home">
+        <img src="assets/images/logo.jpg" alt="Al Naim Quran Academy Logo" class="brand-logo-img">
+        <div class="brand-info">
+          <span class="brand-title">Al Naim Qur’an</span>
+          <span class="brand-subtitle">أكاديمية النعيم</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav role="navigation" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#bookSec" class="nav-link">Holy Qur'an</a></li>
+          <li><a href="#why-us" class="nav-link">Why Choose Us</a></li>
+          <li><a href="#courses" class="nav-link">Courses</a></li>
+          <li><a href="#verse" class="nav-link">Verse of the Day</a></li>
+          <li><a href="#alphabet" class="nav-link">Alphabet</a></li>
+          <li><a href="#tasbih-sec" class="nav-link">Tasbih</a></li>
+          <li><a href="#curriculum" class="nav-link">Roadmap</a></li>
+          <li><a href="#reviews" class="nav-link">Reviews</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Action Buttons -->
+      <div class="nav-actions">
+        <button class="sound-btn" id="soundBtn" aria-label="Toggle audio effects" title="Toggle audio effects">
+          🔔
+        </button>
+        <button class="btn-trial open-trial-btn" id="navTrialBtn">
+          <span>Book Free Trial</span>
+          <span>→</span>
+        </button>
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open mobile navigation menu">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+    <div class="drawer-header">
+      <div class="brand-info">
+        <span class="brand-title">Al Naim Qur’an</span>
+        <span class="brand-subtitle">أكاديمية النعيم للقرآن الكريم</span>
+      </div>
+      <button class="drawer-close" id="drawerCloseBtn" aria-label="Close navigation menu">×</button>
+    </div>
+    <ul class="mobile-links">
+      <li><a href="#bookSec">📖 3D Holy Qur'an <span>→</span></a></li>
+      <li><a href="#why-us">✨ Why Choose Us <span>→</span></a></li>
+      <li><a href="#courses">🎓 Academic Courses <span>→</span></a></li>
+      <li><a href="#verse">🌿 Daily Verse & Reflection <span>→</span></a></li>
+      <li><a href="#alphabet">🔤 Arabic Alphabet Studio <span>→</span></a></li>
+      <li><a href="#tasbih-sec">📿 Digital Tasbih Counter <span>→</span></a></li>
+      <li><a href="#curriculum">🗺️ Learning Journey Roadmap <span>→</span></a></li>
+      <li><a href="#reviews">⭐ Student & Parent Reviews <span>→</span></a></li>
+      <li><a href="#faq">❓ Frequently Asked Questions <span>→</span></a></li>
+    </ul>
+    <div style="margin-top:auto; padding-top:2rem;">
+      <button class="enroll-btn open-trial-btn" style="width:100%; padding:0.9rem;">
+        Book a 100% Free Trial Class
+      </button>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       HERO: 3D INTERACTIVE QUR'AN BOOK
+       ===================================================================== -->
+  <section id="bookSec" aria-label="The Holy Qur’an opens in 3D as you scroll">
+    <div class="stage">
+      <div class="halo" aria-hidden="true"></div>
+      <div class="rays" aria-hidden="true"></div>
+      <div class="stars" id="stars" aria-hidden="true"></div>
+      <i class="lantern l1" aria-hidden="true"></i>
+      <i class="lantern l2" aria-hidden="true"></i>
+
+      <div class="head" id="head">
+        <div class="head-arabic ar" lang="ar" dir="rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+        <h1 id="siteName">Al Naim Qur’an Academy</h1>
+        <p id="siteTag">Learn to read, recite and understand the Qur’an with patient, qualified teachers, online from wherever you are.</p>
+      </div>
+
+      <!-- 3D Book Render Target -->
+      <div class="book" id="book" role="region" aria-label="3D Interactive Mushaf"></div>
+
+      <!-- Rosary Beads Scroll Tracker -->
+      <div class="beads" id="beads" aria-hidden="true" title="Reading progress"></div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       ACADEMY FEATURES / WHY CHOOSE US
+       ===================================================================== -->
+  <section class="section-wrapper" id="why-us">
+    <div class="section-head">
+      <span class="section-tag">Excellence in Islamic Education</span>
+      <h2 class="section-title">Why Learn With Al Naim Academy</h2>
+      <p class="section-desc">We combine classical Islamic pedagogy with cutting-edge online learning technology to nurture love, reverence, and mastery of the Holy Qur'an.</p>
+    </div>
+    <div class="features-grid" id="featuresGrid"></div>
+  </section>
+
+  <!-- =====================================================================
+       COURSES & TUITION
+       ===================================================================== -->
+  <section class="section-wrapper" id="courses">
+    <div class="section-head">
+      <span class="section-tag">Structured Learning Paths</span>
+      <h2 class="section-title">Academic Courses & Tuition</h2>
+      <p class="section-desc">Personalized 1-on-1 private tuition customized to every age and proficiency level. Select your local currency below to view rates.</p>
+    </div>
+    <div class="courses-container">
+      <div class="currency-bar">
+        <span>Select Currency:</span>
+        <select class="currency-select" id="pageCurrencySelect" aria-label="Select currency for tuition rates"></select>
+      </div>
+      <div class="courses-grid" id="coursesGrid"></div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       DAILY VERSE & REFLECTION
+       ===================================================================== -->
+  <section class="section-wrapper" id="verse">
+    <div class="section-head">
+      <span class="section-tag">Daily Quranic Light</span>
+      <h2 class="section-title">Verse of the Day</h2>
+      <p class="section-desc">Ponder the divine words daily. Hover to tilt the card, or listen to the Arabic recitation.</p>
+    </div>
+    <div class="vod-container">
+      <div class="vcard" id="vod">
+        <div class="bismillah ar" lang="ar" dir="rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+        <p class="ar" id="vAr" lang="ar" dir="rtl"></p>
+        <p class="en" id="vEn"></p>
+        <p class="vm" id="vRef"></p>
+        <div class="vod-controls">
+          <button class="vod-btn" id="vSpeak" title="Listen to pronunciation">
+            <span>🔊</span>
+            <span>Listen Aloud</span>
+          </button>
+          <button class="vod-btn" id="vNext" title="Load another verse">
+            <span>✨</span>
+            <span>Reflect on Another Verse</span>
+          </button>
+        </div>
+      </div>
+      <p class="hijri" id="hijri"></p>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       MEET THE LETTERS (ARABIC ALPHABET 3D TILES)
+       ===================================================================== -->
+  <section class="section-wrapper" id="alphabet">
+    <div class="section-head">
+      <span class="section-tag">Phonetics & Makharij</span>
+      <h2 class="section-title">Meet the Arabic Letters</h2>
+      <p class="abc-lead">Tap or click any letter block to flip it in 3D and hear its native Arabic pronunciation aloud.</p>
+    </div>
+    <div class="abc" id="abc" role="region" aria-label="Interactive Arabic Alphabet Tiles"></div>
+  </section>
+
+  <!-- =====================================================================
+       SPIRITUAL DIGITAL TASBIH COUNTER
+       ===================================================================== -->
+  <section class="section-wrapper" id="tasbih-sec">
+    <div class="section-head">
+      <span class="section-tag">Remembrance of Allah</span>
+      <h2 class="section-title">Interactive Digital Tasbih</h2>
+      <p class="section-desc">Tap the illuminated ring to count dhikr. It completes at 33 with a golden celebration and advances to the next sacred phrase.</p>
+    </div>
+    <div class="tasbih">
+      <!-- Dhikr Switcher Tabs -->
+      <div class="tasbih-dhikr-tabs" role="tablist" aria-label="Select Dhikr Phrase">
+        <button class="dhikr-tab-btn active" role="tab">سُبْحَانَ ٱللَّهِ (SubhanAllah)</button>
+        <button class="dhikr-tab-btn" role="tab">ٱلْحَمْدُ لِلَّهِ (Alhamdulillah)</button>
+        <button class="dhikr-tab-btn" role="tab">ٱللَّهُ أَكْبَرُ (Allahu Akbar)</button>
+        <button class="dhikr-tab-btn" role="tab">لَا إِلَٰهَ إِلَّا ٱللَّهُ (La ilaha illallah)</button>
+        <button class="dhikr-tab-btn" role="tab">أَسْتَغْفِرُ ٱللَّهَ (Astaghfirullah)</button>
+      </div>
+
+      <!-- Circular SVG Ring -->
+      <button class="tb" id="tb" aria-label="Count Dhikr" title="Tap to count">
+        <svg viewBox="0 0 200 200" aria-hidden="true">
+          <circle class="tr" cx="100" cy="100" r="88"/>
+          <circle class="tp" id="tp" cx="100" cy="100" r="88"/>
+        </svg>
+        <span>
+          <span id="tn">0</span>
+          <span id="tw" class="ar" lang="ar">سُبْحَانَ ٱللَّهِ</span>
+        </span>
+      </button>
+
+      <div class="tctl">
+        <span id="rnd">Rounds: 0</span>
+        <span>•</span>
+        <button class="lk" id="tz" aria-label="Reset tasbih counter">Reset Counter</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       LEARNING JOURNEY ROADMAP
+       ===================================================================== -->
+  <section class="section-wrapper" id="curriculum">
+    <div class="section-head">
+      <span class="section-tag">Step-by-Step Curriculum</span>
+      <h2 class="section-title">Your Quranic Learning Roadmap</h2>
+      <p class="section-desc">The golden path illuminates as you scroll down. Tap any milestone to view detailed syllabus objectives.</p>
+    </div>
+    <div class="path" id="path" role="region" aria-label="Interactive Curriculum Timeline"></div>
+  </section>
+
+  <!-- =====================================================================
+       TESTIMONIALS & REVIEWS
+       ===================================================================== -->
+  <section class="section-wrapper" id="reviews">
+    <div class="section-head">
+      <span class="section-tag">Parent & Student Feedback</span>
+      <h2 class="section-title">Trusted by Families Worldwide</h2>
+      <p class="section-desc">Read heartfelt reflections from students and parents learning with our teachers across the United Kingdom, United States, Canada, and the Gulf.</p>
+    </div>
+    <div class="testimonials-grid" id="testimonialsGrid"></div>
+  </section>
+
+  <!-- =====================================================================
+       FREQUENTLY ASKED QUESTIONS
+       ===================================================================== -->
+  <section class="section-wrapper" id="faq">
+    <div class="section-head">
+      <span class="section-tag">Got Questions?</span>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-desc">Everything you need to know about starting your online classes with Al Naim Academy.</p>
+    </div>
+    <div class="faq-list" id="faqList"></div>
+  </section>
+
+  <!-- =====================================================================
+       CTA JOIN BANNER
+       ===================================================================== -->
+  <section class="section-wrapper">
+    <div class="join-banner">
+      <h2>Start With a 100% Free Trial Class</h2>
+      <p>Experience our patient teaching style firsthand. Choose your preferred day and time — no credit card required for your trial lesson.</p>
+      <button class="btn open-trial-btn" id="joinTrialBtn">Book Your Free Trial Now</button>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       SITE FOOTER
+       ===================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div style="display:flex; align-items:center; gap:0.8rem; margin-bottom:1rem;">
+          <img src="assets/images/logo.jpg" alt="Al Naim Quran Academy" style="width:48px; height:48px; border-radius:50%; border:2px solid var(--gold);">
+          <h3>Al Naim Qur’an Academy</h3>
+        </div>
+        <p>A premier global online Islamic institute committed to imparting authentic Qur’an recitation, Tajweed, and memorization under certified scholars.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="#bookSec">3D Holy Qur'an</a></li>
+          <li><a href="#courses">Courses & Tuition</a></li>
+          <li><a href="#alphabet">Arabic Letters</a></li>
+          <li><a href="#tasbih-sec">Tasbih Counter</a></li>
+          <li><a href="#curriculum">Learning Roadmap</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Courses</h4>
+        <ul class="footer-links">
+          <li><a href="#courses">Noorani Qaida</a></li>
+          <li><a href="#courses">Nazra & Tajweed</a></li>
+          <li><a href="#courses">Hifz Memorization</a></li>
+          <li><a href="#courses">Quran Translation</a></li>
+          <li><a href="#courses">Islamic Studies</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Admissions & Help</h4>
+        <ul class="footer-links">
+          <li><span>📧 admissions@alnaimacademy.com</span></li>
+          <li><span>📱 +1 (555) 786-9292</span></li>
+          <li><span>🕒 24/7 Global Live Support</span></li>
+          <li><a href="#faq">Frequently Asked Questions</a></li>
+          <li><a href="#trialModal" class="open-trial-btn" style="color:var(--gold); font-weight:600;">Request Free Assessment</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span id="foot">© 2026 Al Naim Qur’an Academy. All rights reserved.</span>
+      <div style="display:flex; gap:1.5rem;">
+        <span>Privacy Policy</span>
+        <span>•</span>
+        <span>Terms of Service</span>
+        <span>•</span>
+        <span>Safeguarding Policy</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       3D PAYMENT GATEWAY MODAL
+       ===================================================================== -->
+  <div class="pay" id="pay" role="dialog" aria-modal="true" aria-labelledby="payTitle">
+    <div class="sheet">
+      <button class="x" id="payX" aria-label="Close Payment Modal">×</button>
+
+      <!-- Step 1: Card Details -->
+      <div class="step on" id="s1">
+        <h3 id="payTitle">Enrollment Fee</h3>
+        <div class="sum">
+          <select id="cur" aria-label="Select Payment Currency"></select>
+          <strong id="amt">$35.00</strong>
+        </div>
+        <p class="demo">
+          Demo Gateway Mode. Nothing is charged to your card. Enter card <code>4242 4242 4242 4242</code>, any future MM/YY date, and 3-digit CVV. The demo OTP is <code>123456</code>.
+        </p>
+
+        <!-- 3D Flippable Credit Card -->
+        <div class="scene" id="scene">
+          <div class="card" id="card">
+            <!-- Front of Card -->
+            <div class="side">
+              <span class="hl"></span>
+              <div class="chip"></div>
+              <div class="brand" id="brand"></div>
+              <input class="cf num" id="cn" inputmode="numeric" autocomplete="cc-number" placeholder="•••• •••• •••• ••••" maxlength="23" aria-label="Card number">
+              <span class="lbl l1">Cardholder</span>
+              <input class="cf nm" id="ch" autocomplete="cc-name" placeholder="Full name" maxlength="26" aria-label="Name on card">
+              <span class="lbl l2">Expires</span>
+              <input class="cf ex" id="ce" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/YY" maxlength="5" aria-label="Expiry date">
+            </div>
+
+            <!-- Back of Card -->
+            <div class="side bk">
+              <span class="hl"></span>
+              <div class="strip"></div>
+              <div class="sig"></div>
+              <span class="lbl l3">CVV</span>
+              <input class="cf cv2" id="cc" inputmode="numeric" autocomplete="cc-csc" placeholder="•••" maxlength="4" aria-label="Security code">
+            </div>
+          </div>
+        </div>
+
+        <p class="err" id="err" role="alert"></p>
+        <button class="go" id="goPay">Pay Monthly Fee</button>
+      </div>
+
+      <!-- Step 2: 6-Digit OTP Verification -->
+      <div class="step" id="s2">
+        <h3>Enter 3-D Secure OTP</h3>
+        <p class="demo">Your issuing bank sent a 6-digit verification code to your device. Demo verification code: <strong>123456</strong>.</p>
+        <div class="otp" id="otp"></div>
+        <p class="err" id="oerr" role="alert"></p>
+        <button class="go" id="verify">Verify & Complete Enrollment</button>
+        <p class="rs">
+          <span id="tm"></span>
+          <button class="lk" id="resend" hidden>Resend Code</button>
+        </p>
+      </div>
+
+      <!-- Step 3: Confirmation & Receipt -->
+      <div class="step" id="s3">
+        <svg class="ok" viewBox="0 0 60 60" aria-hidden="true">
+          <circle cx="30" cy="30" r="26"/>
+          <path d="M18 31l9 9 17-19"/>
+        </svg>
+        <h3 style="text-align:center;">Enrollment Confirmed</h3>
+        <p style="text-align:center; color:var(--mute); font-size:1rem; margin-top:0.4rem;">
+          Welcome to Al Naim Qur'an Academy! Your academic coordinator will reach out shortly to schedule your orientation.
+        </p>
+        <div id="rcpt" style="margin:1.4rem 0;"></div>
+        <div style="display:flex; gap:0.8rem;">
+          <button class="go" id="printReceipt" style="background:rgba(212,175,95,0.2); color:var(--paper); border:1px solid var(--gold);">Print Receipt</button>
+          <button class="go" id="done">Done</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       FREE TRIAL BOOKING MODAL
+       ===================================================================== -->
+  <div class="trial-modal" id="trialModal" role="dialog" aria-modal="true" aria-labelledby="trialModalTitle">
+    <div class="trial-sheet">
+      <button class="x" id="trialCloseBtn" aria-label="Close Trial Modal">×</button>
+      <h3 id="trialModalTitle" style="color:var(--gold); font-family:'Cinzel',serif; font-size:1.7rem; margin-bottom:0.5rem;">
+        Book a Free 1-on-1 Trial Class
+      </h3>
+      <p style="color:var(--mute); font-size:1rem; margin-bottom:1.5rem;">
+        No credit card required. Experience our personalized teaching firsthand at a time convenient for your family.
+      </p>
+
+      <form id="trialForm">
+        <div class="form-group">
+          <label for="studentName" class="form-label">Student Name</label>
+          <input type="text" id="studentName" class="form-input" placeholder="e.g. Maryam or Hamza" required>
+        </div>
+
+        <div class="form-group">
+          <label for="studentAge" class="form-label">Student Age Group</label>
+          <select id="studentAge" class="form-select" required>
+            <option value="Young Child (4 - 7 years)">Young Child (4 - 7 years)</option>
+            <option value="Older Child (8 - 14 years)">Older Child (8 - 14 years)</option>
+            <option value="Teenager (15 - 18 years)">Teenager (15 - 18 years)</option>
+            <option value="Adult Learner (18+ years)">Adult Learner (18+ years)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="courseChoice" class="form-label">Course of Interest</label>
+          <select id="courseChoice" class="form-select" required>
+            <option value="Noorani Qaida & Foundation">Noorani Qaida & Foundation</option>
+            <option value="Nazra & Applied Tajweed">Nazra & Applied Tajweed</option>
+            <option value="Hifz (Quran Memorization)">Hifz (Quran Memorization)</option>
+            <option value="Translation & Tafseer">Translation & Tafseer</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="tutorPref" class="form-label">Teacher Preference</label>
+          <select id="tutorPref" class="form-select">
+            <option value="No preference (Any qualified tutor)">No preference (Any qualified tutor)</option>
+            <option value="Female Scholar (Ustadha)">Female Scholar (Ustadha)</option>
+            <option value="Male Scholar (Ustadh)">Male Scholar (Ustadh)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="contactInfo" class="form-label">Parent WhatsApp or Email</label>
+          <input type="text" id="contactInfo" class="form-input" placeholder="e.g. +1 (555) 000-0000 or name@example.com" required>
+        </div>
+
+        <button type="submit" class="go" style="margin-top:1rem;">Submit Trial Request</button>
+      </form>
+
+      <!-- Success Screen -->
+      <div id="trialSuccess" style="display:none; text-align:center; padding:1.5rem 0;">
+        <svg class="ok" viewBox="0 0 60 60" aria-hidden="true">
+          <circle cx="30" cy="30" r="26"/>
+          <path d="M18 31l9 9 17-19"/>
+        </svg>
+        <h3 style="color:var(--gold); font-size:1.6rem; margin-top:0.5rem;">Trial Class Requested!</h3>
+        <p style="color:var(--mute); font-size:1.05rem; margin:0.8rem 0 1.2rem;">
+          JazakAllah Khair! We have received your booking. Our admissions coordinator will reach out to confirm your teacher and Zoom/Meet class link.
+        </p>
+        <div id="trialDetailsSummary" style="margin:1rem 0;"></div>
+        <button class="go" onclick="document.getElementById('trialModal').classList.remove('on'); document.body.style.overflow='';" style="margin-top:1rem;">
+          Close & Continue Browsing
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       FLOATING WHATSAPP CHAT BUTTON
+       ===================================================================== -->
+  <a href="https://wa.me/15557869292?text=Assalamu%20Alaikum!%20I%20would%20like%20to%20inquire%20about%20classes%20at%20Al%20Naim%20Quran%20Academy."
+     target="_blank"
+     rel="noopener noreferrer"
+     class="floating-whatsapp"
+     aria-label="Chat with Admissions on WhatsApp"
+     title="Instant WhatsApp Admissions Chat">
+    💬
+  </a>
+
+  <!-- =====================================================================
+       JAVASCRIPT SCRIPTS
+       ===================================================================== -->
+  <script src="js/data.js"></script>
+  <script src="js/interactive.js"></script>
+  <script src="js/book.js"></script>
+  <script src="js/payment.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

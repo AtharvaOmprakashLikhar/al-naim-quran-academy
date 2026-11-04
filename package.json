@@ -1,0 +1,21 @@
+{
+  "name": "al-naim-quran-academy",
+  "version": "1.0.0",
+  "description": "Al Naim Qur'an Academy — Modern 3D Interactive Website",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx -y serve . -l 5000",
+    "serve": "python -m http.server 5000",
+    "share": "ssh -o StrictHostKeyChecking=no -R 80:localhost:5000 nokey@localhost.run"
+  },
+  "keywords": [
+    "quran",
+    "academy",
+    "3d",
+    "interactive",
+    "islamic-studies",
+    "tajweed"
+  ],
+  "author": "Al Naim Qur'an Academy",
+  "license": "ISC"
+}

@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Al Naim Qur’an Academy</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&display=swap">
+<style>
+:root{--ink:#06150f;--emerald:#0f3b30;--emerald2:#1a5646;--gold:#d4af5f;--gold2:#a98233;--paper:#f4e9cd;--paper2:#e4d3a6;--text:#2b2415;--mute:#b9cbc3;color-scheme:dark}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--paper);font-family:'Cormorant Garamond',Georgia,serif;font-size:1.2rem;line-height:1.55;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.ar{font-family:'Amiri Quran','Scheherazade New','Noto Naskh Arabic',serif}
+a:focus-visible,.btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* ---------- Book scene ---------- */
+#bookSec{position:relative;background:radial-gradient(ellipse at 50% 40%,#12392f 0%,var(--ink) 70%)}
+.stage{position:sticky;top:0;height:100vh;height:100svh;display:flex;align-items:center;justify-content:center;perspective:2200px;overflow:hidden;padding-top:14vh}
+.head{position:absolute;top:4vh;left:0;right:0;text-align:center;padding:0 1rem;pointer-events:none}
+.head h1{font-size:clamp(1.8rem,5vw,3.4rem);font-weight:700;color:var(--gold);letter-spacing:.02em;line-height:1.1}
+.head p{color:var(--mute);margin-top:.4rem;font-style:italic}
+.hint{display:inline-block;margin-top:.5rem;animation:bob 2.2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(6px)}}
+@media (prefers-reduced-motion:reduce){.hint{animation:none}}
+
+.book{--h:min(62vh,64vw);--w:calc(var(--h)*.7);position:relative;width:calc(var(--w)*2);height:var(--h);transform-style:preserve-3d;will-change:transform}
+.book::before{content:"";position:absolute;left:50%;bottom:-5%;width:52%;height:8%;background:radial-gradient(ellipse,rgba(0,0,0,.65),transparent 70%);filter:blur(6px)}
+.leaf{position:absolute;left:50%;top:0;width:50%;height:100%;transform-origin:left center;transform-style:preserve-3d;will-change:transform}
+.face{position:absolute;inset:0;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;font-size:calc(var(--h)/42);color:var(--text);background:radial-gradient(circle at 30% 20%,var(--paper),var(--paper2))}
+.face.f{border-radius:0 .5em .5em 0}
+.face.b{transform:rotateY(180deg);border-radius:.5em 0 0 .5em}
+.face.f::after,.face.b::after{content:"";position:absolute;inset:0;pointer-events:none}
+.face.f::after{background:linear-gradient(90deg,rgba(0,0,0,.24),transparent 10%)}
+.face.b::after{background:linear-gradient(270deg,rgba(0,0,0,.24),transparent 10%)}
+.pg{position:absolute;inset:0;padding:8% 9% 9%;display:flex;flex-direction:column}
+.pg::before{content:"";position:absolute;inset:3.5%;border:1px solid rgba(169,130,51,.55);pointer-events:none}
+.pg.c{justify-content:center;align-items:center;text-align:center;gap:.9em}
+.pg h2{font-size:2em;line-height:1.1;color:#14473a}
+.pg .tag{font-size:1.05em;max-width:20em;font-style:italic}
+.pg .sub{font-size:.95em;color:#6b5a2e;font-style:italic;text-align:center}
+.pg .sname{font-size:2.3em;text-align:center;color:#14473a;line-height:1.3}
+.v{margin-top:.9em}
+.v .ar{display:block;direction:rtl;text-align:right;font-size:1.75em;line-height:1.8}
+.v .ar i{font-style:normal;color:var(--gold2);font-size:.8em}
+.v .en{display:block;font-size:1em;line-height:1.35;margin-top:.1em}
+.pno{position:absolute;bottom:5.5%;left:0;right:0;text-align:center;font-size:.85em;color:#6b5a2e}
+.orn{width:3.6em;height:3.6em;position:relative;margin:.4em}
+.orn::before,.orn::after,.star::before,.star::after{content:"";position:absolute;inset:0;border:1.5px solid var(--gold2)}
+.orn::after,.star::after{transform:rotate(45deg)}
+.btn{display:inline-block;margin-top:.6em;padding:.55em 1.3em;background:#14473a;color:var(--paper);text-decoration:none;border-radius:2em;font-weight:700;pointer-events:auto}
+.btn:hover{background:#1a5a49}
+
+/* cover */
+.face.cov{background:radial-gradient(circle at 30% 25%,var(--emerald2),var(--emerald) 60%,#082a22);color:var(--gold)}
+.cv{position:absolute;inset:4%;border:2px solid var(--gold);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:1em;box-shadow:inset 0 0 0 .5em rgba(0,0,0,.0),inset 0 0 0 calc(.5em + 1px) rgba(212,175,95,.5)}
+.star{width:6em;height:6em;position:relative;margin-bottom:.8em}
+.star::before,.star::after{border-color:var(--gold)}
+.ctitle{font-size:2.6em;line-height:1.3}
+.cname{font-size:1.25em;letter-spacing:.04em}
+.back.cov{background:var(--emerald)}
+
+/* ---------- Content ---------- */
+.info{max-width:880px;margin:0 auto;padding:7rem 1.5rem 2rem}
+.info h2{font-size:clamp(1.8rem,4vw,2.6rem);color:var(--gold);margin-bottom:1.5rem}
+.row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:1.5rem;padding:1.1rem 0;border-top:1px solid rgba(212,175,95,.3)}
+.row b{font-size:1.4rem;color:var(--paper)}
+.row span{color:var(--mute)}
+@media (max-width:640px){.row{grid-template-columns:1fr;gap:.2rem}}
+.join p{color:var(--mute);max-width:34em;margin-bottom:1.2rem}
+.join .btn{background:var(--gold);color:var(--ink);font-size:1.15rem}
+.join .btn:hover{background:#e6c47a}
+footer{text-align:center;color:var(--mute);padding:4rem 1rem 3rem;font-size:.95rem}
+
+/* ---------- Payment ---------- */
+@property --c1{syntax:"<color>";inherits:false;initial-value:#2b3a55}
+@property --c2{syntax:"<color>";inherits:false;initial-value:#0e1626}
+.btn.sm{font:inherit;font-size:1rem;padding:.35em 1em;margin-top:.6rem;background:var(--gold);color:var(--ink);border:0;cursor:pointer}
+.btn.sm:hover{background:#e6c47a}
+.pay{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;background:rgba(3,10,7,.84);padding:1rem;overflow:auto;backdrop-filter:blur(4px)}
+.pay.on{display:flex}
+.sheet{width:min(440px,100%);background:#0c2a22;border:1px solid rgba(212,175,95,.4);border-radius:1rem;padding:1.4rem;position:relative;animation:rise .5s cubic-bezier(.2,.8,.2,1);margin:auto}
+@keyframes rise{from{transform:translateY(30px) scale(.96);opacity:0}}
+.x{position:absolute;top:.5rem;right:.8rem;background:none;border:0;color:var(--mute);font-size:1.7rem;cursor:pointer}
+.sheet h3{color:var(--gold);font-size:1.6rem;line-height:1.2;padding-right:1.5rem}
+.demo{font-size:.9rem;color:var(--mute);background:rgba(212,175,95,.1);border-radius:.5rem;padding:.4rem .7rem;margin:.6rem 0;line-height:1.35}
+.sum{display:flex;justify-content:space-between;align-items:center;gap:.5rem;margin:.6rem 0 .8rem}
+.sum select{background:var(--ink);color:var(--paper);border:1px solid rgba(212,175,95,.4);border-radius:.4rem;padding:.25rem .5rem;font:inherit}
+.sum strong{font-size:1.7rem}
+.step{display:none}
+.step.on{display:block;animation:fade .4s}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}}
+.scene{perspective:1000px;margin:.4rem auto 1rem;width:min(340px,100%);aspect-ratio:1.586}
+.scene.shake{animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.card{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.3,.8,.3,1)}
+.card.flip{transform:rotateY(180deg)}
+.side{position:absolute;inset:0;border-radius:14px;backface-visibility:hidden;-webkit-backface-visibility:hidden;color:#fff;background:radial-gradient(circle at 85% 0,rgba(255,255,255,.16),transparent 55%),linear-gradient(135deg,var(--c1),var(--c2));transition:--c1 .6s,--c2 .6s;box-shadow:0 18px 40px rgba(0,0,0,.5);overflow:hidden;font-family:ui-monospace,Menlo,Consolas,monospace}
+.side.bk{transform:rotateY(180deg)}
+.hl{position:absolute;border:2px solid rgba(255,255,255,.9);border-radius:6px;pointer-events:none;opacity:0;transition:all .3s cubic-bezier(.3,.8,.3,1)}
+.chip{position:absolute;left:6%;top:16%;width:13%;aspect-ratio:1.3;border-radius:5px;background:linear-gradient(135deg,#f0d78f,#b8933f)}
+.brand{position:absolute;top:8%;right:6%;font:italic 700 1.15rem Georgia,serif}
+.mc{display:inline-block;width:36px;height:22px;background:radial-gradient(circle at 11px 11px,#eb001b 11px,transparent 11.5px),radial-gradient(circle at 25px 11px,rgba(247,158,27,.92) 11px,transparent 11.5px)}
+.cf{position:absolute;background:transparent;border:0;color:#fff;font:inherit;outline:0;padding:0;text-shadow:0 1px 2px rgba(0,0,0,.45)}
+.cf::placeholder{color:rgba(255,255,255,.45)}
+.cf.tick{animation:tick .18s}
+@keyframes tick{from{opacity:.4;transform:translateY(-3px)}}
+.num{left:6%;right:6%;top:46%;font-size:clamp(.95rem,5.2vw,1.35rem);letter-spacing:.08em}
+.nm{left:6%;bottom:8%;width:58%;font-size:.8rem;text-transform:uppercase}
+.ex{right:6%;bottom:8%;width:20%;font-size:.85rem;text-align:right}
+.lbl{position:absolute;font-size:.6rem;color:rgba(255,255,255,.65)}
+.l1{left:6%;bottom:21%}.l2{right:6%;bottom:21%}.l3{right:6%;top:36%}
+.strip{position:absolute;left:0;right:0;top:12%;height:17%;background:#111}
+.sig{position:absolute;left:6%;right:32%;top:44%;height:16%;background:repeating-linear-gradient(45deg,#f3f3f3,#f3f3f3 6px,#ddd 6px,#ddd 12px)}
+.cv2{right:6%;top:44%;width:22%;height:16%;background:#fff;color:#111;text-align:center;border-radius:3px;text-shadow:none;font-size:1rem}
+.cv2::placeholder{color:#999}
+.err{color:#ff9d8a;font-size:1rem;min-height:1.4em;margin:.2rem 0 .4rem;text-align:center}
+.go{width:100%;border:0;cursor:pointer;font:700 1.2rem 'Cormorant Garamond',Georgia,serif;background:var(--gold);color:var(--ink);padding:.7rem;border-radius:.6rem}
+.go:hover{background:#e6c47a}
+.go.busy{opacity:.75;pointer-events:none}
+.go.busy::before{content:"";display:inline-block;width:.9em;height:.9em;margin-right:.6em;border:2px solid var(--ink);border-top-color:transparent;border-radius:50%;vertical-align:-.1em;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.otp{display:flex;gap:.5rem;justify-content:center;margin:1rem 0 .4rem}
+.otp.bad{animation:shake .4s}
+.otp input{width:2.7rem;height:3.3rem;text-align:center;font:700 1.5rem ui-monospace,Menlo,monospace;background:var(--ink);color:var(--paper);border:1.5px solid rgba(212,175,95,.35);border-radius:.5rem;outline:0;transition:transform .15s,border-color .2s}
+.otp input:focus{border-color:var(--gold);transform:translateY(-3px)}
+.otp input.f{border-color:var(--gold);animation:pop .25s}
+@keyframes pop{50%{transform:scale(1.14)}}
+.rs{text-align:center;color:var(--mute);margin-top:.8rem;font-size:1rem}
+.lk{background:none;border:0;color:var(--gold);font:inherit;text-decoration:underline;cursor:pointer}
+.ok{width:88px;height:88px;display:block;margin:.6rem auto}
+.ok circle{fill:none;stroke:var(--gold);stroke-width:3;stroke-dasharray:166;stroke-dashoffset:166;animation:dr .7s .1s forwards}
+.ok path{fill:none;stroke:var(--gold);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:50;stroke-dashoffset:50;animation:dr .4s .75s forwards}
+@keyframes dr{to{stroke-dashoffset:0}}
+.rc{display:flex;justify-content:space-between;gap:1rem;padding:.55rem 0;border-top:1px solid rgba(212,175,95,.25);color:var(--mute)}
+.rc b{color:var(--paper);text-align:right}
+#s3 h3{text-align:center;padding:0}
+
+/* ---------- Hero extras: the book as the star ---------- */
+@keyframes spin{to{rotate:360deg}}
+@keyframes spin2{from{rotate:45deg}to{rotate:405deg}}
+@keyframes float{0%,100%{translate:0 4px;rotate:0 1 0 -5deg}50%{translate:0 -16px;rotate:0 1 0 5deg}}
+@keyframes foil{to{background-position:-250% 0}}
+@keyframes swing{0%,100%{rotate:-5deg}50%{rotate:5deg}}
+@keyframes flick{0%,100%{filter:brightness(1)}45%{filter:brightness(1.35)}60%{filter:brightness(.9)}}
+@keyframes tw{50%{opacity:.1}}
+@keyframes rise{0%{translate:0 0;opacity:0}15%{opacity:.7}100%{translate:0 -70vh;opacity:0}}
+@keyframes sway{0%,100%{rotate:-6deg}50%{rotate:6deg}}
+@keyframes rowin{from{opacity:0;translate:0 36px}}
+.book{animation:float 7s ease-in-out infinite}
+.halo{position:absolute;left:50%;top:56%;width:min(94vh,98vw);aspect-ratio:1;translate:-50% -50%;border:1px dashed rgba(212,175,95,.3);border-radius:50%;opacity:calc(.3 + var(--open,0)*.7);animation:spin 140s linear infinite reverse;pointer-events:none}
+.halo::before,.halo::after{content:"";position:absolute;inset:9%;border:1px solid rgba(212,175,95,.42);animation:spin 90s linear infinite}
+.halo::after{inset:9%;animation-name:spin2;animation-duration:90s;box-shadow:0 0 60px rgba(212,175,95,.12) inset}
+.rays{position:absolute;left:50%;top:56%;width:150vmax;height:150vmax;translate:-50% -50%;background:repeating-conic-gradient(rgba(255,226,150,.2) 0 4deg,transparent 4deg 15deg);-webkit-mask:radial-gradient(circle closest-side,#000,transparent);mask:radial-gradient(circle closest-side,#000,transparent);opacity:calc(var(--open,0)*.85);animation:spin 100s linear infinite;pointer-events:none}
+.stars{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.stars i{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff3c4;animation:tw 4s ease-in-out infinite}
+.stars b{position:absolute;bottom:-4rem;color:var(--gold);font-weight:400;opacity:0;animation:rise 16s linear infinite}
+.lantern{position:absolute;top:0;left:10%;width:0;height:0;transform-origin:50% 0;animation:swing 5s ease-in-out infinite;pointer-events:none}
+.lantern::before{content:"";position:absolute;left:-.5px;top:0;width:1px;height:10vh;background:rgba(212,175,95,.55)}
+.lantern::after{content:"";position:absolute;left:-22px;top:10vh;width:44px;height:76px;clip-path:polygon(32% 0,68% 0,100% 24%,100% 76%,68% 100%,32% 100%,0 76%,0 24%);background:linear-gradient(#8a6420,#8a6420) 50% 0/46% 9% no-repeat,radial-gradient(circle at 50% 56%,#fff4c2 0,#f5b73b 36%,#8a5a12 78%);animation:flick 2.6s ease-in-out infinite}
+.l2{left:auto;right:10%;scale:.8;animation-delay:-2.4s}
+.l2::before{height:6vh}.l2::after{top:6vh}
+.beads{position:absolute;right:1.1rem;top:50%;translate:0 -50%;display:flex;flex-direction:column;gap:6px;pointer-events:none}
+.beads i{width:7px;height:7px;border-radius:50%;background:rgba(212,175,95,.22);transition:background .3s,box-shadow .3s}
+.beads i.on{background:var(--gold);box-shadow:0 0 8px var(--gold)}
+.book::after{content:"";position:absolute;left:50%;top:1%;width:50%;height:98%;background:#d9c99a;border-radius:0 .4em .4em 0;translate:0 0 -3px;box-shadow:2px 1px 0 #efe3bd,4px 2px 0 #d3c18c,6px 3px 0 #efe3bd,8px 4px 0 #cdb97f,10px 5px 0 #6e5116;opacity:calc(1 - var(--open,0))}
+.ribbon{position:absolute;left:68%;top:98%;width:13px;height:72px;transform-origin:50% 0;background:linear-gradient(#c0392b,#7a1510);clip-path:polygon(0 0,100% 0,100% 100%,50% 84%,0 100%);animation:sway 3.4s ease-in-out infinite;translate:0 0 4px}
+.ctitle,.cname,.head h1{background:linear-gradient(100deg,#b88a2e 30%,#fff3c4 46%,#b88a2e 62%) 0 0/250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:foil 5s linear infinite}
+.face:not(.live) .v .ar{clip-path:inset(0 0 0 100%)}
+.face.live .v .ar{clip-path:inset(0);transition:clip-path 1.3s ease calc(var(--i,0)*.45s + .3s)}
+.row{position:relative}
+.row::before{content:"";position:absolute;left:0;top:-1px;height:1px;width:0;background:var(--gold);transition:width .7s}
+.row:hover::before{width:100%}
+
+/* ---------- Interactive extras ---------- */
+.info+.info{padding-top:4.5rem}
+.lead{color:var(--mute);margin:-.8rem 0 1.5rem;max-width:36em}
+.vcard{border:1px solid rgba(212,175,95,.35);border-radius:1rem;padding:2rem 1.5rem;text-align:center;background:radial-gradient(circle at 50% 0,rgba(212,175,95,.14),transparent 70%);transition:transform .25s}
+.vcard .ar{font-size:clamp(1.8rem,5vw,2.6rem);line-height:1.9;color:var(--gold);min-height:2em}
+.vcard .ar.w{animation:write 1.6s ease both}
+@keyframes write{from{clip-path:inset(0 0 0 100%)}to{clip-path:inset(0)}}
+.vm{color:var(--mute);font-style:italic;margin:.3rem 0 .6rem}
+.hijri{color:var(--mute);margin-top:1rem;text-align:center}
+.abc{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:.8rem}
+.tile{position:relative;perspective:600px;aspect-ratio:1;background:none;border:0;padding:0;cursor:pointer;font:inherit;transition:translate .25s}
+.tile:hover{translate:0 -5px}
+.ti{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.3,.8,.3,1)}
+.tile.on .ti{transform:rotateY(180deg)}
+.tf,.tb2{position:absolute;inset:0;display:grid;place-items:center;border-radius:.8rem;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:1px solid rgba(212,175,95,.35)}
+.tf{font-size:2.4rem;color:var(--gold);background:linear-gradient(145deg,#12392f,#0b2820);transition:box-shadow .3s}
+.tile:hover .tf{box-shadow:0 0 22px rgba(212,175,95,.35)}
+.tb2{transform:rotateY(180deg);background:var(--gold);color:var(--ink);font-weight:700;font-size:1.15rem}
+@supports (animation-timeline:view()){.tile{animation:rowin linear both;animation-timeline:view();animation-range:entry 0% entry 70%}}
+.tasbih{display:flex;flex-direction:column;align-items:center;gap:.9rem}
+.tb{position:relative;width:min(260px,70vw);aspect-ratio:1;border:0;border-radius:50%;background:radial-gradient(circle,#12392f,#0a241c);cursor:pointer;color:var(--paper);font:inherit;display:grid;place-items:center;box-shadow:0 0 40px rgba(212,175,95,.1);transition:transform .12s}
+.tb:active{transform:scale(.96)}
+.tb svg{position:absolute;inset:0;width:100%;height:100%;rotate:-90deg}
+.tb circle{fill:none;stroke-width:6}
+.tb .tr{stroke:rgba(212,175,95,.18)}
+.tb .tp{stroke:var(--gold);stroke-linecap:round;stroke-dasharray:553;stroke-dashoffset:553;transition:stroke-dashoffset .25s}
+.tb span{position:relative;text-align:center;line-height:1.2;display:block}
+#tn{font-size:4rem;font-weight:700}
+#tw{color:var(--gold);font-size:1.5rem}
+.tb.done{animation:done .7s}
+@keyframes done{40%{box-shadow:0 0 90px rgba(255,226,150,.75);transform:scale(1.05)}}
+.tctl{display:flex;gap:1.5rem;color:var(--mute);align-items:center}
+.path{position:relative;padding-left:2.4rem;--pp:0}
+.path::before,.path::after{content:"";position:absolute;left:.55rem;top:.4rem;bottom:.4rem;width:2px;background:rgba(212,175,95,.22)}
+.path::after{background:linear-gradient(var(--gold),#fff3c4);bottom:auto;height:calc((100% - .8rem)*var(--pp));box-shadow:0 0 10px var(--gold)}
+.pt{position:relative;padding:.9rem 0}
+.pt::before{content:"";position:absolute;left:-2.15rem;top:1.25rem;width:.9rem;height:.9rem;rotate:45deg;background:var(--ink);border:2px solid rgba(212,175,95,.4);transition:.4s}
+.pt.on::before{background:var(--gold);border-color:var(--gold);box-shadow:0 0 14px var(--gold);scale:1.25}
+.pt summary{cursor:pointer;font-size:1.5rem;list-style:none}
+.pt summary::-webkit-details-marker{display:none}
+.pt summary small{color:var(--mute);font-size:1rem;margin-left:.6rem}
+.pt p{color:var(--mute);margin-top:.3rem;animation:fade .4s}
+.cur{position:fixed;left:0;top:0;width:34px;height:34px;margin:-17px 0 0 -17px;border:1.5px solid var(--gold);border-radius:50%;pointer-events:none;z-index:99;transition:width .2s,height .2s,margin .2s,background .2s}
+.cur.big{width:60px;height:60px;margin:-30px 0 0 -30px;background:rgba(212,175,95,.15)}
+.sp{position:fixed;width:8px;height:8px;background:var(--gold);rotate:45deg;pointer-events:none;z-index:99}
+@supports (animation-timeline:view()){.row{animation:rowin linear both;animation-timeline:view();animation-range:entry 0% entry 55%}}
+@media (prefers-reduced-motion:reduce){.halo,.halo::before,.halo::after,.rays,.lantern,.lantern::after,.stars i,.stars b,.book,.ribbon,.ctitle,.cname,.head h1{animation:none!important}}
+</style>
+</head>
+<body>
+
+<section id="bookSec" aria-label="The Qur’an opens as you scroll">
+  <div class="stage"><div class="halo" aria-hidden="true"></div><div class="rays" aria-hidden="true"></div><div class="stars" id="stars" aria-hidden="true"></div><i class="lantern l1" aria-hidden="true"></i><i class="lantern l2" aria-hidden="true"></i>
+    <div class="head" id="head"><h1 id="siteName"></h1><p id="siteTag"></p><span class="hint">Scroll to open the Qur’an</span></div>
+    <div class="book" id="book"></div><div class="beads" id="beads" aria-hidden="true"></div>
+  </div>
+</section>
+
+<section class="info"><h2>Courses</h2><div id="courses"></div></section>
+<section class="info"><h2>Verse of the day</h2><div class="vcard" id="vod"><p class="ar" id="vAr" lang="ar" dir="rtl"></p><p id="vEn"></p><p class="vm" id="vRef"></p><button class="btn sm" id="vNext">Another verse</button></div><p class="hijri" id="hijri"></p></section>
+<section class="info"><h2>Meet the letters</h2><p class="lead">Tap a letter to flip it and see its name. If your device has an Arabic voice, it will say it aloud.</p><div class="abc" id="abc"></div></section>
+<section class="info"><h2>Tasbih</h2><p class="lead">Tap the ring to count. It fills at 33, celebrates, and moves to the next phrase.</p><div class="tasbih"><button class="tb" id="tb" aria-label="Count"><svg viewBox="0 0 200 200" aria-hidden="true"><circle class="tr" cx="100" cy="100" r="88"/><circle class="tp" id="tp" cx="100" cy="100" r="88"/></svg><span id="tn">0</span><span id="tw" class="ar" lang="ar"></span></button><div class="tctl"><span id="rnd">Rounds: 0</span><button class="lk" id="tz">Reset</button></div></div></section>
+<section class="info"><h2>Your learning path</h2><div class="path" id="path"></div></section>
+<section class="info join"><h2 id="joinTitle"></h2><p id="joinText"></p><a class="btn" id="joinBtn"></a></section>
+<footer id="foot"></footer>
+
+<div class="pay" id="pay" role="dialog" aria-modal="true" aria-labelledby="payTitle">
+ <div class="sheet">
+  <button class="x" id="payX" aria-label="Close">×</button>
+  <div class="step on" id="s1">
+   <h3 id="payTitle"></h3>
+   <div class="sum"><select id="cur" aria-label="Currency"></select><strong id="amt"></strong></div>
+   <p class="demo">Demo mode, nothing is charged. Use card 4242 4242 4242 4242, any future date and any security code. The OTP is 123456.</p>
+   <div class="scene" id="scene"><div class="card" id="card">
+    <div class="side"><span class="hl"></span><div class="chip"></div><div class="brand" id="brand"></div>
+     <input class="cf num" id="cn" inputmode="numeric" autocomplete="cc-number" placeholder="•••• •••• •••• ••••" maxlength="23" aria-label="Card number">
+     <span class="lbl l1">Card holder</span><input class="cf nm" id="ch" autocomplete="cc-name" placeholder="Full name" maxlength="26" aria-label="Name on card">
+     <span class="lbl l2">Expires</span><input class="cf ex" id="ce" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/YY" maxlength="5" aria-label="Expiry date">
+    </div>
+    <div class="side bk"><span class="hl"></span><div class="strip"></div><div class="sig"></div><span class="lbl l3">CVV</span>
+     <input class="cf cv2" id="cc" inputmode="numeric" autocomplete="cc-csc" placeholder="•••" maxlength="3" aria-label="Security code">
+    </div>
+   </div></div>
+   <p class="err" id="err" role="alert"></p>
+   <button class="go" id="goPay"></button>
+  </div>
+  <div class="step" id="s2">
+   <h3>Enter the OTP</h3>
+   <p class="demo">Your bank sent a 6-digit code to the phone linked to this card. Demo OTP: 123456.</p>
+   <div class="otp" id="otp"></div>
+   <p class="err" id="oerr" role="alert"></p>
+   <button class="go" id="verify">Verify and pay</button>
+   <p class="rs"><span id="tm"></span><button class="lk" id="resend" hidden>Resend code</button></p>
+  </div>
+  <div class="step" id="s3">
+   <svg class="ok" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="26"/><path d="M18 31l9 9 17-19"/></svg>
+   <h3>Payment received</h3>
+   <div id="rcpt" style="margin:1rem 0"></div>
+   <button class="go" id="done">Done</button>
+  </div>
+ </div>
+</div>
+
+<script>
+/* =====================================================================
+   EDIT HERE — everything on the site comes from this block.
+   ===================================================================== */
+const SITE = {
+  name: "Al Naim Qur’an Academy",
+  tagline: "Learn to read, recite and understand the Qur’an with patient, qualified teachers, online from wherever you are.",
+  courses: [
+    { n: "Noorani Qaida",           d: "Letters, sounds and first reading, for young children and new learners.", p: 30 },
+    { n: "Nazra and Tajweed",       d: "Fluent recitation with the pronunciation rules taught step by step.", p: 35 },
+    { n: "Hifz",                    d: "Guided memorisation with daily revision and monthly tests.", p: 45 },
+    { n: "Translation and meaning", d: "Understand what you recite, verse by verse.", p: 40 }
+  ],
+  join:   { title: "Start with a free trial class", text: "Tell us the student’s age and level and we will arrange a first lesson at a time that suits your family.", label: "Book a free trial", href: "mailto:hello@example.com" },
+  footer: "© 2026 Al Naim Qur’an Academy"
+};
+
+/* Book pages, in reading order. Add, remove or reorder freely:
+   the book, its flip animation and the scroll length all adjust automatically.
+   type "intro" | "surah" | "end".  A surah page lists its verses with number n. */
+const PAGES = [
+  { type: "intro" },
+  { type: "surah", ar: "الفاتحة", name: "Al-Fātiḥah", sub: "The Opening", verses: [
+    { n: 1, ar: "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ", en: "In the name of God, the Most Merciful, the Most Compassionate." },
+    { n: 2, ar: "ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ", en: "All praise belongs to God, Lord of all the worlds," },
+    { n: 3, ar: "ٱلرَّحْمَٰنِ ٱلرَّحِيمِ", en: "the Most Merciful, the Most Compassionate," },
+    { n: 4, ar: "مَٰلِكِ يَوْمِ ٱلدِّينِ", en: "Master of the Day of Judgment." } ] },
+  { type: "surah", cont: true, name: "Al-Fātiḥah continued", verses: [
+    { n: 5, ar: "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ", en: "You alone we worship, and You alone we ask for help." },
+    { n: 6, ar: "ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ", en: "Guide us along the straight path," },
+    { n: 7, ar: "صِرَٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ وَلَا ٱلضَّآلِّينَ", en: "the path of those You have blessed, not of those who earned Your anger, nor of those who go astray." } ] },
+  { type: "surah", ar: "الإخلاص", name: "Al-Ikhlāṣ", sub: "Sincerity", verses: [
+    { n: 1, ar: "قُلْ هُوَ ٱللَّهُ أَحَدٌ", en: "Say: He is God, the One." },
+    { n: 2, ar: "ٱللَّهُ ٱلصَّمَدُ", en: "God, the Eternal Refuge." },
+    { n: 3, ar: "لَمْ يَلِدْ وَلَمْ يُولَدْ", en: "He has not begotten, nor was He begotten," },
+    { n: 4, ar: "وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌۢ", en: "and there is none comparable to Him." } ] },
+  { type: "surah", ar: "العلق", name: "Al-ʿAlaq", sub: "The first verses revealed", verses: [
+    { n: 1, ar: "ٱقْرَأْ بِٱسْمِ رَبِّكَ ٱلَّذِى خَلَقَ", en: "Read in the name of your Lord who created," },
+    { n: 2, ar: "خَلَقَ ٱلْإِنسَٰنَ مِنْ عَلَقٍ", en: "created the human being from a clinging clot." },
+    { n: 3, ar: "ٱقْرَأْ وَرَبُّكَ ٱلْأَكْرَمُ", en: "Read, and your Lord is the Most Generous," },
+    { n: 4, ar: "ٱلَّذِى عَلَّمَ بِٱلْقَلَمِ", en: "who taught by the pen," },
+    { n: 5, ar: "عَلَّمَ ٱلْإِنسَٰنَ مَا لَمْ يَعْلَمْ", en: "taught the human being what he did not know." } ] },
+  { type: "end", title: "Begin your reading", text: "Every reader starts with the first letter." }
+];
+/* ===================================================================== */
+
+const $ = id => document.getElementById(id);
+const toAr = n => String(n).replace(/\d/g, d => "٠١٢٣٤٥٦٧٨٩"[d]);
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const ease = t => t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2;
+
+/* text content */
+document.title = SITE.name;
+$("siteName").textContent = SITE.name;
+$("siteTag").textContent = SITE.tagline;
+$("courses").innerHTML = SITE.courses.map((c, i) => `<div class="row"><b>${c.n}</b><span>${c.d}<br><button class="btn sm" data-i="${i}">Enroll for $${c.p} a month</button></span></div>`).join("");
+$("joinTitle").textContent = SITE.join.title;
+$("joinText").textContent = SITE.join.text;
+$("joinBtn").textContent = SITE.join.label; $("joinBtn").href = SITE.join.href;
+$("foot").textContent = SITE.footer;
+
+/* page renderers */
+function renderPage(p, i) {
+  if (p.type === "cover") return `<div class="cv"><div class="star"></div><div class="ctitle ar" lang="ar" dir="rtl">القرآن الكريم</div><div class="cname">${SITE.name}</div></div>`;
+  if (p.type === "back")  return "";
+  if (p.type === "blank") return `<div class="pg c"><div class="orn"></div></div>`;
+  if (p.type === "intro") return `<div class="pg c"><div class="orn"></div><h2>${SITE.name}</h2><p class="tag">${SITE.tagline}</p></div>`;
+  if (p.type === "end")   return `<div class="pg c"><h2>${p.title}</h2><p class="tag">${p.text}</p><a class="btn" href="${SITE.join.href}">${SITE.join.label}</a></div>`;
+  const head = p.cont ? `<p class="sub">${p.name}</p>`
+    : `<div class="sname ar" lang="ar" dir="rtl">${p.ar}</div><p class="sub">${p.name}, ${p.sub}</p>`;
+  const verses = p.verses.map(v => `<p class="v"><span class="ar" lang="ar" dir="rtl">${v.ar} <i>﴿${toAr(v.n)}﴾</i></span><span class="en">${v.en}</span></p>`).join("");
+  return `<div class="pg">${head}${verses}<div class="pno">${i}</div></div>`;
+}
+
+/* assemble faces: cover, pages, (blank pad), back cover → leaves of two faces */
+const pages = PAGES.slice();
+if (pages.length % 2) pages.push({ type: "blank" });
+const faces = [{ type: "cover" }, ...pages, { type: "back" }];
+const L = faces.length / 2, F = L - 1;
+$("book").innerHTML = Array.from({ length: L }, (_, k) => {
+  const a = faces[2*k], b = faces[2*k + 1];
+  return `<div class="leaf"><div class="face f ${a.type === "cover" ? "cov" : ""}">${renderPage(a, 2*k)}</div><div class="face b ${b.type === "back" ? "cov back" : ""}">${renderPage(b, 2*k)}</div></div>`;
+}).join("");
+
+/* scroll-driven animation */
+const sec = $("bookSec"), book = $("book"), head = $("head"), leaves = [...document.querySelectorAll(".leaf")];
+sec.style.height = (160 + F * 85) + "vh";
+let ticking = false;
+function update() {
+  ticking = false;
+  const s = clamp(-sec.getBoundingClientRect().top / (sec.offsetHeight - 1.6 * innerHeight));
+  const x = s * F, open = ease(clamp(x));
+  leaves.forEach((el, k) => {
+    const a = -180 * ease(clamp(x - k));
+    el.style.transform = `rotateY(${a}deg)`;
+    el.style.zIndex = a < -90 ? k + 1 : L - k;
+  });
+  book.style.transform = `translateX(${-25 * (1 - open)}%) rotateX(${16 * (1 - open)}deg)`;
+  head.style.opacity = 1 - clamp(x * 2.2);
+}
+addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+addEventListener("resize", update);
+update();
+
+/* =====================================================================
+   PAYMENT — EDIT HERE.
+   Prices (p) are USD per month in SITE.courses; RATES are placeholder
+   display rates. Card entry here is a front-end demo. For real charges,
+   swap GATEWAY for Stripe, Razorpay, etc. Card numbers must go through
+   the gateway’s own secure fields or SDK, never to your own server.
+   The OTP step is the bank’s 3-D Secure check, which the gateway runs.
+   ===================================================================== */
+const RATES = { USD:{r:1,s:"$"}, EUR:{r:.92,s:"€"}, GBP:{r:.79,s:"£"}, INR:{r:84,s:"₹"}, AED:{r:3.67,s:"AED "} };
+const wait = ms => new Promise(r => setTimeout(r, ms));
+const GATEWAY = {
+  async pay(order, card)  { await wait(1400); return { id: "DEMO-" + Date.now().toString(36).toUpperCase() }; },
+  async verifyOtp(id, code) { await wait(900); return code === "123456"; },
+  async resendOtp(id)       { await wait(500); }
+};
+
+const pay = $("pay"), card = $("card"), cn = $("cn"), ch = $("ch"), ce = $("ce"), cc = $("cc"), cur = $("cur");
+const err = $("err"), oerr = $("oerr"), go = $("goPay"), vbtn = $("verify"), otpEl = $("otp");
+let course = null, payId = null, lastFocus = null, tmr;
+const show = n => ["s1","s2","s3"].forEach((id, i) => $(id).classList.toggle("on", i === n - 1));
+const money = usd => { const c = RATES[cur.value]; return c.s + (usd * c.r).toFixed(c.r >= 50 ? 0 : 2); };
+const brandOf = n => /^4/.test(n) ? "visa" : /^(5[1-5]|2[2-7])/.test(n) ? "mc" : /^3[47]/.test(n) ? "amex" : "";
+const BR = { visa:["#1c44a8","#081a4f","VISA"], mc:["#4a4f5c","#14161c",'<i class="mc"></i>'], amex:["#1f7a7a","#0a3b3b","AMEX"], "":["#2b3a55","#0e1626",""] };
+const luhn = s => { let t = 0, d = false; for (let i = s.length - 1; i >= 0; i--) { let n = +s[i]; if (d) { n *= 2; if (n > 9) n -= 9; } t += n; d = !d; } return t % 10 === 0; };
+
+cur.innerHTML = Object.keys(RATES).map(c => `<option>${c}</option>`).join("");
+const refresh = () => { $("amt").textContent = money(course.p); go.textContent = "Pay " + money(course.p); };
+cur.onchange = refresh;
+
+/* card behaviour: flip to the back for CVV, ring follows the active field, brand recolours the card */
+[cn, ch, ce, cc].forEach(f => {
+  const hl = () => f.closest(".side").querySelector(".hl");
+  f.addEventListener("focus", () => {
+    card.classList.toggle("flip", f === cc);
+    Object.assign(hl().style, { left: f.offsetLeft - 6 + "px", top: f.offsetTop - 4 + "px", width: f.offsetWidth + 12 + "px", height: f.offsetHeight + 8 + "px", opacity: 1 });
+  });
+  f.addEventListener("blur", () => hl().style.opacity = 0);
+  f.addEventListener("input", () => { f.classList.remove("tick"); void f.offsetWidth; f.classList.add("tick"); });
+});
+cn.addEventListener("input", () => {
+  const d = cn.value.replace(/\D/g, "").slice(0, 19), b = brandOf(d), am = b === "amex";
+  const g = am ? [4,6,5] : [4,4,4,4,4], o = []; let i = 0;
+  for (const n of g) { if (i >= d.length) break; o.push(d.slice(i, i + n)); i += n; }
+  cn.value = o.join(" ");
+  card.querySelectorAll(".side").forEach(s => { s.style.setProperty("--c1", BR[b][0]); s.style.setProperty("--c2", BR[b][1]); });
+  $("brand").innerHTML = BR[b][2];
+  cc.maxLength = am ? 4 : 3; cc.placeholder = am ? "••••" : "•••";
+});
+ce.addEventListener("input", () => { let d = ce.value.replace(/\D/g, ""); if (d.length === 1 && d > 1) d = "0" + d; ce.value = d.length > 2 ? d.slice(0,2) + "/" + d.slice(2,4) : d; });
+cc.addEventListener("input", () => cc.value = cc.value.replace(/\D/g, ""));
+
+/* open / close */
+document.addEventListener("click", e => { const b = e.target.closest("[data-i]"); if (b) openPay(+b.dataset.i); });
+function openPay(i) {
+  course = SITE.courses[i]; lastFocus = document.activeElement;
+  $("payTitle").textContent = course.n + ", monthly fee";
+  [cn, ch, ce, cc].forEach(f => f.value = ""); cn.dispatchEvent(new Event("input"));
+  card.classList.remove("flip"); err.textContent = ""; refresh(); show(1);
+  pay.classList.add("on"); document.body.style.overflow = "hidden";
+  setTimeout(() => cn.focus(), 450);
+}
+function closePay() { pay.classList.remove("on"); document.body.style.overflow = ""; clearInterval(tmr); if (lastFocus) lastFocus.focus(); }
+$("payX").onclick = $("done").onclick = closePay;
+pay.addEventListener("click", e => { if (e.target === pay) closePay(); });
+addEventListener("keydown", e => { if (e.key === "Escape" && pay.classList.contains("on")) closePay(); });
+
+/* step 1: validate the card, then start payment */
+go.onclick = async () => {
+  const num = cn.value.replace(/\D/g, ""), [mm, yy] = ce.value.split("/");
+  let m = "";
+  if (num.length < 13 || !luhn(num)) m = "Check the card number.";
+  else if (ch.value.trim().length < 2) m = "Enter the name on the card.";
+  else if (!(+mm >= 1 && +mm <= 12 && yy && yy.length === 2 && new Date(2000 + +yy, +mm) > new Date())) m = "Check the expiry date.";
+  else if (cc.value.length < cc.maxLength) m = "Enter the security code.";
+  err.textContent = m;
+  if (m) { const sc = $("scene"); sc.classList.remove("shake"); void sc.offsetWidth; sc.classList.add("shake"); return; }
+  go.classList.add("busy");
+  try {
+    const r = await GATEWAY.pay({ course: course.n, usd: course.p, currency: cur.value }, { num, mm, yy, cvc: cc.value, name: ch.value });
+    payId = r.id; [cn, ch, ce, cc].forEach(f => f.value = "");
+    show(2); startOtp();
+  } catch (e) { err.textContent = "The payment could not start. Please try again."; }
+  go.classList.remove("busy");
+};
+
+/* step 2: six-box OTP */
+otpEl.innerHTML = Array.from({ length: 6 }, (_, i) => `<input inputmode="numeric" maxlength="1" aria-label="Digit ${i+1}" ${i ? "" : 'autocomplete="one-time-code"'}>`).join("");
+const boxes = [...otpEl.children];
+boxes.forEach((b, i) => {
+  b.addEventListener("input", () => {
+    b.value = b.value.replace(/\D/g, "").slice(-1);
+    if (b.value) { b.classList.remove("f"); void b.offsetWidth; b.classList.add("f"); if (i < 5) boxes[i+1].focus(); else verify(); }
+  });
+  b.addEventListener("keydown", e => { if (e.key === "Backspace" && !b.value && i) { boxes[i-1].value = ""; boxes[i-1].focus(); } });
+  b.addEventListener("paste", e => {
+    const d = (e.clipboardData.getData("text") || "").replace(/\D/g, "").slice(0, 6); if (!d) return; e.preventDefault();
+    [...d].forEach((ch2, k) => boxes[k].value = ch2); boxes[Math.min(d.length, 5)].focus(); if (d.length === 6) verify();
+  });
+});
+function startOtp() {
+  boxes.forEach(b => b.value = ""); oerr.textContent = ""; let s = 30; clearInterval(tmr);
+  const tick = () => { $("tm").textContent = s > 0 ? "Resend code in " + s + "s" : ""; $("resend").hidden = s > 0; };
+  tick(); tmr = setInterval(() => { s--; tick(); if (s <= 0) clearInterval(tmr); }, 1000);
+  setTimeout(() => boxes[0].focus(), 350);
+}
+$("resend").onclick = () => GATEWAY.resendOtp(payId).then(startOtp);
+vbtn.onclick = verify;
+async function verify() {
+  const code = boxes.map(b => b.value).join("");
+  if (code.length < 6) { oerr.textContent = "Enter all 6 digits."; return; }
+  vbtn.classList.add("busy");
+  const ok = await GATEWAY.verifyOtp(payId, code);
+  vbtn.classList.remove("busy");
+  if (ok) {
+    clearInterval(tmr);
+    $("rcpt").innerHTML = [["Course", course.n], ["Amount", money(course.p)], ["Reference", payId]].map(r => `<div class="rc"><span>${r[0]}</span><b>${r[1]}</b></div>`).join("");
+    show(3);
+  } else {
+    oerr.textContent = "That code is not right. Try again.";
+    otpEl.classList.remove("bad"); void otpEl.offsetWidth; otpEl.classList.add("bad");
+    boxes.forEach(b => b.value = ""); boxes[0].focus();
+  }
+}
+
+/* ===== HERO EXTRAS: sparkles, floating letters, ribbon, tasbih beads, verse reveal ===== */
+(() => {
+  const stage = document.querySelector(".stage"), letters = "ابتثجحخدذرزسشصضطظعغفقكلمنهوي";
+  $("stars").innerHTML =
+    Array.from({ length: 46 }, () => `<i style="left:${Math.random()*100}%;top:${Math.random()*100}%;animation-delay:${-Math.random()*4}s;scale:${.5+Math.random()}"></i>`).join("") +
+    Array.from({ length: 18 }, () => `<b class="ar" style="left:${4+Math.random()*92}%;animation-delay:${-Math.random()*16}s;animation-duration:${12+Math.random()*10}s;font-size:${1.2+Math.random()*1.6}rem">${letters[Math.floor(Math.random()*letters.length)]}</b>`).join("");
+  book.insertAdjacentHTML("beforeend", '<i class="ribbon"></i>');
+  $("beads").innerHTML = "<i></i>".repeat(33);
+  const beads = [...$("beads").children];
+  document.querySelectorAll(".pg").forEach(pg => pg.querySelectorAll(".v").forEach((v, i) => v.style.setProperty("--i", i)));
+  let t = false;
+  const fx = () => {
+    t = false;
+    const s = clamp(-sec.getBoundingClientRect().top / (sec.offsetHeight - 1.6 * innerHeight)), x = s * F, cur = Math.round(x);
+    stage.style.setProperty("--open", ease(clamp(x)).toFixed(3));
+    beads.forEach((b, i) => b.classList.toggle("on", i < Math.round(s * 33)));
+    leaves.forEach((l, k) => { l.children[0].classList.toggle("live", k === cur); l.children[1].classList.toggle("live", k === cur - 1); });
+  };
+  addEventListener("scroll", () => { if (!t) { t = true; requestAnimationFrame(fx); } }, { passive: true });
+  fx();
+})();
+
+/* ===== INTERACTIVE EXTRAS ===== */
+const PATH = [  /* EDIT HERE: the learning path (title, time, description) */
+  ["Noorani Qaida", "Months 1 to 3", "Recognise every letter, its shape and its sound."],
+  ["Nazra", "Months 4 to 9", "Read the Qur’an fluently from the mushaf."],
+  ["Tajweed", "Year 1 to 2", "Apply the rules of recitation with care."],
+  ["Hifz", "Year 2 onward", "Memorise page by page with daily revision."],
+  ["Understanding", "Always", "Learn the meaning of what you recite."]
+];
+const LETTERS = "ا|ألف|Alif,ب|باء|Bāʼ,ت|تاء|Tāʼ,ث|ثاء|Thāʼ,ج|جيم|Jīm,ح|حاء|Ḥāʼ,خ|خاء|Khāʼ,د|دال|Dāl,ذ|ذال|Dhāl,ر|راء|Rāʼ,ز|زاي|Zāy,س|سين|Sīn,ش|شين|Shīn,ص|صاد|Ṣād,ض|ضاد|Ḍād,ط|طاء|Ṭāʼ,ظ|ظاء|Ẓāʼ,ع|عين|ʿAyn,غ|غين|Ghayn,ف|فاء|Fāʼ,ق|قاف|Qāf,ك|كاف|Kāf,ل|لام|Lām,م|ميم|Mīm,ن|نون|Nūn,ه|هاء|Hāʼ,و|واو|Wāw,ي|ياء|Yāʼ";
+(() => {
+  const calm = matchMedia("(prefers-reduced-motion:reduce)").matches;
+  const burst = (x, y, n = 7) => {
+    if (calm) return;
+    for (let i = 0; i < n; i++) {
+      const s = document.createElement("i"); s.className = "sp"; s.style.left = x + "px"; s.style.top = y + "px"; document.body.append(s);
+      const a = Math.random() * 6.28, d = 30 + Math.random() * 55;
+      s.animate([{ transform: "translate(0,0) scale(1)", opacity: 1 }, { transform: `translate(${Math.cos(a)*d}px,${Math.sin(a)*d}px) scale(0)`, opacity: 0 }], { duration: 700 + Math.random() * 300, easing: "ease-out" }).onfinish = () => s.remove();
+    }
+  };
+  addEventListener("click", e => { if (e.detail) burst(e.clientX, e.clientY, 6); });
+
+  /* verse of the day: a new verse each day, or pick another */
+  const V = []; PAGES.forEach(p => p.verses && p.verses.forEach(v => V.push({ ...v, ref: p.name.replace(" continued", "") + ", verse " + v.n })));
+  let vi = Math.floor(Date.now() / 864e5) % V.length;
+  const showV = () => { const v = V[vi], a = $("vAr"); a.classList.remove("w"); void a.offsetWidth; a.textContent = v.ar + " ﴿" + toAr(v.n) + "﴾"; a.classList.add("w"); $("vEn").textContent = v.en; $("vRef").textContent = v.ref; };
+  $("vNext").onclick = () => { let n; do { n = Math.floor(Math.random() * V.length); } while (n === vi && V.length > 1); vi = n; showV(); };
+  showV();
+  try { $("hijri").textContent = "Today is " + new Intl.DateTimeFormat("en-u-ca-islamic-umalqura", { day: "numeric", month: "long", year: "numeric" }).format(new Date()); } catch (e) {}
+  const vc = $("vod");
+  vc.addEventListener("pointermove", e => { const b = vc.getBoundingClientRect(), px = (e.clientX - b.left) / b.width - .5, py = (e.clientY - b.top) / b.height - .5; vc.style.transform = `perspective(800px) rotateX(${-py*8}deg) rotateY(${px*10}deg)`; });
+  vc.addEventListener("pointerleave", () => vc.style.transform = "");
+
+  /* letters */
+  $("abc").innerHTML = LETTERS.split(",").map(s => { const [l, a, n] = s.split("|"); return `<button class="tile" data-a="${a}" aria-label="${n}"><span class="ti"><span class="tf ar" lang="ar">${l}</span><span class="tb2">${n}</span></span></button>`; }).join("");
+  $("abc").addEventListener("click", e => {
+    const t = e.target.closest(".tile"); if (!t) return;
+    t.classList.toggle("on");
+    if (t.classList.contains("on") && "speechSynthesis" in window) { const u = new SpeechSynthesisUtterance(t.dataset.a); u.lang = "ar-SA"; u.rate = .8; speechSynthesis.cancel(); speechSynthesis.speak(u); }
+  });
+
+  /* tasbih */
+  const PH = ["سُبْحَانَ ٱللَّهِ", "ٱلْحَمْدُ لِلَّهِ", "ٱللَّهُ أَكْبَرُ"], tb = $("tb"), tp = $("tp");
+  let c = 0, r = 0;
+  const paint = () => { $("tn").textContent = c; tp.style.strokeDashoffset = 553 * (1 - c / 33); $("tw").textContent = PH[r % 3]; $("rnd").textContent = "Rounds: " + r; };
+  tb.onclick = () => {
+    if (c >= 33) return;
+    c++; if (navigator.vibrate) navigator.vibrate(12); paint();
+    if (c === 33) {
+      const b = tb.getBoundingClientRect(); burst(b.left + b.width / 2, b.top + b.height / 2, 16);
+      tb.classList.remove("done"); void tb.offsetWidth; tb.classList.add("done");
+      setTimeout(() => { c = 0; r++; paint(); }, 700);
+    }
+  };
+  $("tz").onclick = () => { c = 0; r = 0; paint(); };
+  paint();
+
+  /* learning path: the line fills as you scroll, steps light up, tap to read */
+  const path = $("path");
+  path.innerHTML = PATH.map(p => `<details class="pt"><summary>${p[0]}<small>${p[1]}</small></summary><p>${p[2]}</p></details>`).join("");
+  const pts = [...path.children];
+  const pf = () => { const rc = path.getBoundingClientRect(), h = innerHeight * .65; path.style.setProperty("--pp", clamp((h - rc.top) / rc.height).toFixed(3)); pts.forEach(p => p.classList.toggle("on", p.getBoundingClientRect().top < h)); };
+  addEventListener("scroll", pf, { passive: true }); pf();
+
+  /* glowing cursor ring (mouse devices only) */
+  if (!calm && matchMedia("(hover:hover) and (pointer:fine)").matches) {
+    const cu = document.createElement("div"); cu.className = "cur"; document.body.append(cu);
+    let x = -99, y = -99, cx = -99, cy = -99;
+    addEventListener("pointermove", e => { x = e.clientX; y = e.clientY; cu.classList.toggle("big", !!e.target.closest("a,button,summary,input,select")); });
+    (function loop() { cx += (x - cx) * .18; cy += (y - cy) * .18; cu.style.transform = `translate(${cx}px,${cy}px)`; requestAnimationFrame(loop); })();
+  }
+})();
+</script>
+</body>
+</html>

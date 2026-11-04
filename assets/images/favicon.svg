@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#14473a"/>
+      <stop offset="100%" stop-color="#06150f"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff0c2"/>
+      <stop offset="50%" stop-color="#d4af5f"/>
+      <stop offset="100%" stop-color="#997022"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+  <rect x="3" y="3" width="58" height="58" rx="12" fill="none" stroke="url(#gold)" stroke-width="1.5" stroke-opacity="0.6"/>
+  <!-- Eight-pointed star / Rub el Hizb -->
+  <g transform="translate(32,32) scale(0.85)">
+    <rect x="-16" y="-16" width="32" height="32" fill="none" stroke="url(#gold)" stroke-width="2.2"/>
+    <rect x="-16" y="-16" width="32" height="32" fill="none" stroke="url(#gold)" stroke-width="2.2" transform="rotate(45)"/>
+    <!-- Center circle -->
+    <circle cx="0" cy="0" r="6" fill="url(#gold)"/>
+    <circle cx="0" cy="0" r="2.5" fill="#06150f"/>
+  </g>
+</svg>
